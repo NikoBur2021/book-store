@@ -37,7 +37,6 @@ function BookEdit() {
                 .catch(error => alert(error))
 
         }
-
     }, [])
 
     function save() {
@@ -50,9 +49,7 @@ function BookEdit() {
                 .then(() => history.push("/books"))
                 .catch(error => console.log(error))
         }
-
     }
-
 
     function changeInputHandler(event) {
         setBook({
@@ -67,30 +64,30 @@ function BookEdit() {
 
     function validationPositive(event){
         const input = event.target;
-        if(input.value < 0 || input.value === ""){
+        if (input.value < 0 || input.value === "") {
             setValidation({
                 ...validation,
                 storeCountError: true
 
             })
 
-        }else {
+        } else {
             setValidation({
                 ...validation,
                 storeCountError: false
             })
         }
     }
-    function validationPositivePrice(event){
+    function validationPositivePrice(event) {
         const input = event.target;
-        if(input.value < 0 || input.value === ""){
+        if (input.value < 0 || input.value === "") {
             setValidation({
                 ...validation,
                 priceError: true
 
             })
 
-        }else {
+        } else {
             setValidation({
                 ...validation,
                 priceError: false
@@ -101,14 +98,14 @@ function BookEdit() {
 
     function validationPositiveName(event){
         const input = event.target;
-        if(input.value === "" || input.value.trim() === ""){
+        if (input.value === "" || input.value.trim() === "") {
             setValidation({
                 ...validation,
                 nameError: true
 
             })
 
-        }else {
+        } else {
             setValidation({
                 ...validation,
                 nameError: false
@@ -172,8 +169,7 @@ function BookEdit() {
                        onChange={changeInputHandler}
                        onBlur={validationPositive} // событие называется потерей фокуса.
                    />
-               </pre>
-
+                </pre>
                 <pre>
                     <Select
                         renderValue={a => a.lastName === undefined ? "choose author" :  a.lastName + ' ' + a.firstName}
