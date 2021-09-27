@@ -5,6 +5,8 @@ import axios from "axios";
 import {Breadcrumbs, CardContent, Container, Link, Paper, Typography} from "@material-ui/core";
 
 function AuthorInfo() {
+    
+    
     const classes = useStyles()
     const {id} = useParams();
     const [author, setAuthor] = useState({});
