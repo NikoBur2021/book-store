@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import useStyles from "../../styles";
 import axios from "axios";
 import {
+    Link as MuiLink,
     Breadcrumbs,
     Button,
     Card,
@@ -28,21 +29,22 @@ function Authors() {
             .then(result => setAuthors(result.data.content))
             .catch(error => alert(error))
     },[])
-    function handleClick(event){
-        event.preventDefault();
-        console.info('You clicked a breadcrumb.');
 
+    function handleClick(event){
     }
+
     return (
-        <div className="App">
-            <Breadcrumbs aria-label="breadcrumb">
-                <Link color="inherit" to="/" onClick={handleClick}>
-                    Main Page
-                </Link>
-                <Typography color="textPrimary">Authors</Typography>
-            </Breadcrumbs>
-            <Button component={Link} to={`/authors/add`} variant="outlined">Add Authors</Button>
-            <Container className={classes.cardGrid} maxWidth="lg">
+        <div>
+            <Container className={classes.cardGrid} maxWidth="md" minWidth="xs" >
+                <Breadcrumbs aria-label="breadcrumb">
+                    <MuiLink color="inherit" href="/" onClick={handleClick}>
+                        Main Page
+                    </MuiLink>
+                    <Typography color="textPrimary">Authors</Typography>
+                </Breadcrumbs>
+                <Grid item xs={12} align="center">
+                    <Button component={Link} to={`/authors/add`} variant="outlined">Add Authors</Button>
+                </Grid>
                 <Grid container spacing={4}>
                     {authors.map(author => (
                         <Grid item key={author.id} md={3}>

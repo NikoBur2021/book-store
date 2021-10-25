@@ -1,4 +1,4 @@
-import logo from "../logo.svg";
+import logo from "../../src/images/book.jpg";
 import React from "react";
 
 function FirstPage() {
@@ -8,16 +8,16 @@ function FirstPage() {
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>
-                    Edit <code>src/App.js</code> and save to reload.
+                   Welcome to our bookstore
                 </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
+                {/*<a*/}
+                {/*    className="App-link"*/}
+                {/*    href="https://reactjs.org"*/}
+                {/*    target="_blank"*/}
+                {/*    rel="noopener noreferrer"*/}
+                {/*>*/}
+                {/*    Learn React*/}
+                {/*</a>*/}
             </header>
         </div>
     );

@@ -1,10 +1,18 @@
 import {makeStyles} from "@material-ui/core";
+import pic from "./images/20211004_115020.jpg"
 
 
 
 const useStyles = makeStyles({
     authorSelect: {
         minWidth: '120px'
+    },
+    backgroundFirstPage: {
+        backgroundImage: `url(${pic})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        height: '100vh'
     },
     first: {
         width: '400px',
@@ -21,7 +29,7 @@ const useStyles = makeStyles({
         backgroundColor: 'gray',
     },
     cardGrid: {
-        padding: '80px 0'
+        padding: '80px 0',
     },
     card: {
         height: '100%',
@@ -38,6 +46,9 @@ const useStyles = makeStyles({
     },
     cardContent: {
         flexGrow: 1,
+    },
+    topPad: {
+      paddingTop: '0px'
     },
 
 })

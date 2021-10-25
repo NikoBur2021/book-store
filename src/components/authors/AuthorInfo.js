@@ -23,17 +23,16 @@ function AuthorInfo() {
     return (
 
         <div className="App">
-        <Breadcrumbs aria-label="breadcrumb">
-            <Link color="inherit" href="/" onClick={handleClick}>
-                Main Page
-            </Link>
-            <Link color="inherit" href="/authors" onClick={handleClick}>
-                Authors
-            </Link>
-            <Typography color="textPrimary">Information about Author</Typography>
-        </Breadcrumbs>
-
-            <Container className={classes.cardGrid} maxWidth="lg">
+            <Container className={classes.cardGrid} maxWidth="md" minWidth="xs">
+                <Breadcrumbs aria-label="breadcrumb">
+                    <Link color="inherit" href="/" onClick={handleClick}>
+                        Main Page
+                    </Link>
+                    <Link color="inherit" href="/authors" onClick={handleClick}>
+                        Authors
+                    </Link>
+                    <Typography color="textPrimary">Information about Author</Typography>
+                </Breadcrumbs>
                 <Paper variant="outlined">
                     <CardContent className={classes.cardContent}>
                         <Typography gutterBottom variant="h3">

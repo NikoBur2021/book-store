@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {
-    Link,
+    Link as MuiLink,
     Breadcrumbs,
     Button,
     Card,
@@ -13,6 +13,7 @@ import {
     Typography
 } from "@material-ui/core";
 import useStyles from "../../styles";
+import {Link} from "react-router-dom";
 
 function Books() {
     const classes = useStyles()
@@ -29,22 +30,23 @@ function Books() {
 
     },[])
     function handleClick() {
-
     }
 
     return (
         <div>
-            <Breadcrumbs aria-label="breadcrumb">
-                <Link color="inherit" href="/" onClick={handleClick}>
-                    Main Page
-                </Link>
-                <Typography color="textPrimary">Books</Typography>
-            </Breadcrumbs>
-            <Container className={classes.cardGrid} maxWidth="md">
-                <Button component={Link} to={'/books/add'} variant="outlined">Add Books</Button>
+            <Container className={classes.cardGrid} maxWidth="md" minWidth="xs">
+                <Breadcrumbs aria-label="breadcrumb">
+                    <MuiLink color="inherit" href="/" onClick={handleClick}>
+                        Main Page
+                    </MuiLink>
+                    <Typography color="textPrimary">Books</Typography>
+                </Breadcrumbs>
+                <Grid item xs={12} align="center">
+                    <Button component={Link} to={'/books/add'} variant="outlined">Add Books</Button>
+                </Grid>
                 <Grid container spacing={4}>
                     {books.map(book => (
-                        <Grid item key={book.id} md={3}>
+                        <Grid item key={book.id} xs={12} sm={6} md={3}>
                             <Card className={classes.card}>
                                 <CardMedia className={classes.cardMedia} image={book.picture}/>
                                 <CardContent className={classes.cardContent}>

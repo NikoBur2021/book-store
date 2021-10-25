@@ -1,7 +1,7 @@
 import {useParams} from "react-router";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {Breadcrumbs, Button, Link, MenuItem, Select, TextField, Typography} from "@material-ui/core";
+import {Breadcrumbs, Button, Container, Link, MenuItem, Select, TextField, Typography} from "@material-ui/core";
 import useStyles from "../../styles";
 import {useHistory} from "react-router-dom";
 
@@ -21,6 +21,8 @@ function BookEdit() {
         price: 0,
         storeCount: 0
     });
+
+
 
     useEffect(() => {
         axios.get('http://localhost:8080/api/v1/authors', {
@@ -78,7 +80,7 @@ function BookEdit() {
             })
         }
     }
-    function validationPositivePrice(event) {
+    function validationPrice(event) {
         const input = event.target;
         if (input.value < 0 || input.value === "") {
             setValidation({
@@ -95,10 +97,9 @@ function BookEdit() {
         }
     }
 
-
-    function validationPositiveName(event){
+    function validationName(event){
         const input = event.target;
-        if (input.value === "" || input.value.trim() === "") {
+        if (input.value === "" || input.value.trim() === "") { // trim - обрезает ВСЕ пробелы.
             setValidation({
                 ...validation,
                 nameError: true
@@ -114,7 +115,7 @@ function BookEdit() {
     }
 
     return (
-        <div>
+        <Container className={styles.cardGrid} maxWidth="md" minWidth="xs" >
             <Breadcrumbs aria-label="breadcrumb">
                 <Link color="inherit" href="/" onClick={handleClick}>
                     Main Page
@@ -122,25 +123,23 @@ function BookEdit() {
                 <Link color="inherit" href="/books" onClick={handleClick}>
                     Books
                 </Link>
-
                 <Typography color="textPrimary">
                     {
                         id === undefined ? "Add" : "Edit"
                     }
                 </Typography>
             </Breadcrumbs>
-
             <pre>
                 <pre>
                      <TextField
                          error={validation.nameError}
-                         helperText={validation.nameError ? "Book name must be letters" : ""}
+                         helperText={validation.nameError ? "Book name must be filled" : ""}
                          label="Book name"
                          variant="outlined"
                          value={book.name}
                          name="name"
                          onChange={changeInputHandler}
-                         onBlur={validationPositiveName}
+                         onBlur={validationName}
                      />
                 </pre>
                 <pre>
@@ -153,7 +152,7 @@ function BookEdit() {
                          value={book.price}
                          name="price"
                          onChange={changeInputHandler}
-                         onBlur={validationPositivePrice}
+                         onBlur={validationPrice}
 
                      />
                 </pre>
@@ -189,7 +188,7 @@ function BookEdit() {
 
                 <Button onClick={save} disabled={validation.storeCountError || validation.priceError || validation.nameError}>Save</Button>
             </pre>
-        </div>
+        </Container>
     )
 }
 
