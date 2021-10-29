@@ -15,13 +15,13 @@ function BookInfo() {
         storeCount: 0
     });
     useEffect(() => {
-        axios.get('http://localhost:8080/api/v1/books/' + id)
+        axios.get('https://books-backend2021.herokuapp.com/api/v1/books/' + id)
             .then(result => setBook(result.data))
             .catch(error => alert(error) )
     }, [])
 
     function deleteBook() {
-        axios.delete('http://localhost:8080/api/v1/books/' + id)
+        axios.delete('https://books-backend2021.herokuapp.com/api/v1/books/' + id)
             .then(() => history.push("/books"))
             // Если удаление прошло успешно, то мы должны перейти на страничку localhost...
             .catch(error => alert(error))

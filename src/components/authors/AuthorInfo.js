@@ -11,7 +11,7 @@ function AuthorInfo() {
     const {id} = useParams();
     const [author, setAuthor] = useState({});
     useEffect(() => {
-        axios.get('http://localhost:8080/api/v1/authors/' + id)
+        axios.get('https://books-backend2021.herokuapp.com/api/v1/authors/' + id)
             .then(result => setAuthor(result.data))
             .catch(error => alert(error))
     }, [])

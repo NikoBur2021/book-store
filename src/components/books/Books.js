@@ -19,7 +19,7 @@ function Books() {
     const classes = useStyles()
     const [books, setBooks] = useState([]);
     useEffect(()=>{
-        axios.get('http://localhost:8080/api/v1/books',{
+        axios.get('https://books-backend2021.herokuapp.com/api/v1/books',{
             params:{
                 page:0,
                 size:100

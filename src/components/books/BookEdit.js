@@ -25,7 +25,7 @@ function BookEdit() {
 
 
     useEffect(() => {
-        axios.get('http://localhost:8080/api/v1/authors', {
+        axios.get('https://books-backend2021.herokuapp.com/api/v1/authors', {
             params: {
                 page: 0,
                 size: 100

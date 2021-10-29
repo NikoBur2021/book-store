@@ -21,7 +21,7 @@ function AuthorEdit() {
 
     useEffect(() => {
         if (id !== undefined) {
-            axios.get('http://localhost:8080/api/v1/authors/' + id)
+            axios.get('https://books-backend2021.herokuapp.com/api/v1/authors/' + id)
                 .then(result => setAuthor(result.data))
                 .catch(error => alert(error))
         }
@@ -31,11 +31,11 @@ function AuthorEdit() {
 
     function save() {
         if (id !== undefined) { // Если ID определено, то мы
-            axios.put('http://localhost:8080/api/v1/authors', author)// просто редактируем Автора
+            axios.put('https://books-backend2021.herokuapp.com/api/v1/authors', author)// просто редактируем Автора
                 .then(() => history.push("/authors"))
                 .catch(error => alert(error))
         } else {              // а если нет ID, то мы
-            axios.post('http://localhost:8080/api/v1/authors', author)// добавляем нового Автора
+            axios.post('https://books-backend2021.herokuapp.com/api/v1/authors', author)// добавляем нового Автора
                 .then(() => history.push("/authors"))
                 .catch(error => alert(error))
         }
