@@ -43,7 +43,7 @@ function Authors() {
                     <Typography color="textPrimary">Authors</Typography>
                 </Breadcrumbs>
                 <Grid item xs={12} align="center">
-                    <Button component={Link} to={`/authors/add`} variant="outlined">Add Authors</Button>
+                    <Button component={Link} to={`/authors/add`} variant="contained">Add Authors</Button>
                 </Grid>
                 <Grid container spacing={4}>
                     {authors.map(author => (
@@ -62,8 +62,8 @@ function Authors() {
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small" color="secondary" component={Link} to={`/authors/edit/${author.id}`}>Edit</Button>
-                                    <Button size="small" color="secondary" component={Link} to={`/authors/info/${author.id}`}>Info</Button>
+                                    <Button variant="contained" size="small" color="second" component={Link} to={`/authors/edit/${author.id}`}>Edit</Button>
+                                    <Button variant="contained" size="small" color="second" component={Link} to={`/authors/info/${author.id}`}>Info</Button>
                                 </CardActions>
                             </Card>
                         </Grid>

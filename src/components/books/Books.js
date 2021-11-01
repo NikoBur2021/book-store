@@ -42,7 +42,7 @@ function Books() {
                     <Typography color="textPrimary">Books</Typography>
                 </Breadcrumbs>
                 <Grid item xs={12} align="center">
-                    <Button component={Link} to={'/books/add'} variant="outlined">Add Books</Button>
+                    <Button component={Link} to={'/books/add'} variant="contained">Add Books</Button>
                 </Grid>
                 <Grid container spacing={4}>
                     {books.map(book => (
@@ -61,8 +61,8 @@ function Books() {
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small" color="secondary" component={Link} to={`/books/info/${book.id}`}>Info</Button>
-                                    <Button size="small" color="secondary" component={Link} to={`/books/edit/${book.id}`}>Edit</Button>
+                                    <Button variant="contained" size="small" color="second" component={Link} to={`/books/info/${book.id}`}>Info</Button>
+                                    <Button variant="contained" size="small" color="second" component={Link} to={`/books/edit/${book.id}`}>Edit</Button>
                                 </CardActions>
                             </Card>
                         </Grid>
