@@ -1,4 +1,4 @@
-import logo from "../../src/images/book.jpg";
+import logo from "../../src/images/book-clipart-12.jpg";
 import React from "react";
 
 function FirstPage() {

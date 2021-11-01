@@ -25,7 +25,7 @@ function BookEdit() {
 
 
     useEffect(() => {
-        axios.get('https://books-backend2021.herokuapp.com/api/v1/authors', {
+        axios.get('https://books-backend2021.herokuapp.com/api/v1/books', {
             params: {
                 page: 0,
                 size: 100
@@ -34,7 +34,7 @@ function BookEdit() {
             .then(result => setAuthors(result.data.content))
             .catch(error => alert(error))
         if (id !== undefined) {
-            axios.get('http://localhost:8080/api/v1/books/' + id)
+            axios.get('https://books-backend2021.herokuapp.com/api/v1/books' + id)
                 .then(result => setBook(result.data))
                 .catch(error => alert(error))
 
@@ -43,11 +43,11 @@ function BookEdit() {
 
     function save() {
         if (id !== undefined) {
-            axios.put('http://localhost:8080/api/v1/books', book)
+            axios.put('https://books-backend2021.herokuapp.com/api/v1/books', book)
                 .then(() => history.push("/books"))
                 .catch(error => console.log(error))
         } else {
-            axios.post('http://localhost:8080/api/v1/books', book)
+            axios.post('https://books-backend2021.herokuapp.com/api/v1/books', book)
                 .then(() => history.push("/books"))
                 .catch(error => console.log(error))
         }
