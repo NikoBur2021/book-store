@@ -1,7 +1,9 @@
 import './App.css';
 import * as React from 'react';
-import {BrowserRouter as Router, Link, Route, Switch,} from "react-router-dom";
-import {styled, useTheme} from '@mui/material/styles';
+import {
+    BrowserRouter as Router, Route, Switch,
+} from "react-router-dom";
+import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
@@ -15,9 +17,10 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
+import {Link} from "react-router-dom";
 import Footer from "./components/Footer";
 import {ThemeProvider} from "@material-ui/styles";
-import {CssBaseline} from "@material-ui/core";
+import {Button, CssBaseline, ListItemIcon} from "@material-ui/core";
 import FirstPage from "./components/FirstPage";
 import BookInfo from "./components/books/BookInfo";
 import BookEdit from "./components/books/BookEdit";
@@ -28,11 +31,13 @@ import Authors from "./components/authors/Authors";
 import useStyles from "./styles";
 
 
+
+
 const drawerWidth = 240;
 
 
-const MainStyle = styled('main', {shouldForwardProp: (prop) => prop !== 'open'})(
-    ({theme, open}) => ({
+const MainStyle = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
+    ({ theme, open }) => ({
         flexGrow: 1,
         padding: theme.spacing(0),
         transition: theme.transitions.create('margin', {
@@ -52,7 +57,7 @@ const MainStyle = styled('main', {shouldForwardProp: (prop) => prop !== 'open'})
 
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
-})(({theme, open}) => ({
+})(({ theme, open }) => ({
     transition: theme.transitions.create(['margin', 'width'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
@@ -67,7 +72,7 @@ const AppBar = styled(MuiAppBar, {
     }),
 }));
 
-const DrawerHeader = styled('div')(({theme}) => ({
+const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
@@ -90,93 +95,92 @@ export default function PersistentDrawerLeft() {
     };
 
     return (
-        <Box sx={{display: 'flex'}}>
+        <Box sx={{ display: 'flex' }}>
             <ThemeProvider theme={theme}>
-                <Router>
-                    <CssBaseline/>
-                    <AppBar position="fixed" open={open}>
-                        <Toolbar className={classes.bar}>
-                            <IconButton
-                                color="inherit"
-                                aria-label="open drawer"
-                                onClick={handleDrawerOpen}
-                                edge="start"
-                                sx={{mr: 2, ...(open && {display: 'none'})}}
-                            >
-                                <MenuIcon/>
-                            </IconButton>
-                            <Typography variant="h6" noWrap component="div">
-                                Menu
-                            </Typography>
-                        </Toolbar>
-                    </AppBar>
-                    <Drawer
-                        sx={{
+            <Router>
+                <CssBaseline />
+                <AppBar position="fixed" open={open} >
+                    <Toolbar className={classes.bar}>
+                        <IconButton
+                            color="inherit"
+                            aria-label="open drawer"
+                            onClick={handleDrawerOpen}
+                            edge="start"
+                            sx={{ mr: 2, ...(open && { display: 'none' }) }}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <Typography variant="h6" noWrap component="div">
+                            Menu
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
+                <Drawer
+                    sx={{
+                        width: drawerWidth,
+                        flexShrink: 0,
+                        '& .MuiDrawer-paper': {
                             width: drawerWidth,
-                            flexShrink: 0,
-                            '& .MuiDrawer-paper': {
-                                width: drawerWidth,
-                                boxSizing: 'border-box',
-                            },
-                        }}
-                        variant="persistent"
-                        anchor="left"
-                        open={open}
-                    >
-                        <DrawerHeader>
-                            <IconButton onClick={handleDrawerClose}>
-                                {theme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
-                            </IconButton>
-                        </DrawerHeader>
-                        <Divider/>
-                        <List>
-                            <ListItem button>
-                                <ListItemText component={Link} to="/" primary={"FIRST PAGE"}>
-                                </ListItemText>
-                            </ListItem>
-                            <ListItem button>
-                                <ListItemText component={Link} to="/books" primary={"BOOKS"}>
-                                </ListItemText>
-                            </ListItem>
-                            <ListItem button>
-                                <ListItemText component={Link} to="/authors" primary={"AUTHORS"}>
-                                </ListItemText>
-                            </ListItem>
-                        </List>
-                    </Drawer>
-                    <MainStyle open={open}>
-                        <Switch>
-                            <Route exact path="/">
-                                <FirstPage/>
-                            </Route>
-                            <Route path="/books/info/:id">
-                                <BookInfo/>
-                            </Route>
-                            <Route path="/books/edit/:id">
-                                <BookEdit/>
-                            </Route>
-                            <Route path="/books/add">
-                                <BookEdit/>
-                            </Route>
-                            <Route path="/books">
-                                <Books/>
-                            </Route>
-                            <Route path="/authors/edit/:id">
-                                <AuthorEdit/>
-                            </Route>
-                            <Route path="/authors/info/:id">
-                                <AuthorInfo/>
-                            </Route>
-                            <Route path="/authors/add">
-                                <AuthorEdit/>
-                            </Route>
-                            <Route path="/authors">
-                                <Authors/>
-                            </Route>
-                        </Switch>
-                        <Footer/>
-                    </MainStyle>
-                </Router>
+                            boxSizing: 'border-box',
+                        },
+                    }}
+                    variant="persistent"
+                    anchor="left"
+                    open={open}
+                >
+                    <DrawerHeader>
+                        <IconButton onClick={handleDrawerClose}>
+                            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                        </IconButton>
+                    </DrawerHeader>
+                    <Divider />
+                    <List>
+                        <ListItem button component={Link} to="/">
+                                    <ListItemText primary={"FIRST PAGE"}/>
+                        </ListItem>
+                        <ListItem button component={Link} to="/books">
+                        <ListItemText>
+                                <ListItemText primary={"BOOKS"}/>
+                        </ListItemText>
+                        </ListItem>
+                        <ListItem button component={Link} to="/authors" >
+                            <ListItemText primary={"AUTHORS"}/>
+                        </ListItem>
+                    </List>
+                </Drawer>
+                <MainStyle open={open}>
+                    <Switch>
+                        <Route exact path="/">
+                            <FirstPage/>
+                        </Route>
+                        <Route path="/books/info/:id">
+                            <BookInfo/>
+                        </Route>
+                        <Route path="/books/edit/:id">
+                            <BookEdit/>
+                        </Route>
+                        <Route path="/books/add">
+                            <BookEdit/>
+                        </Route>
+                        <Route path="/books">
+                            <Books/>
+                        </Route>
+                        <Route path="/authors/edit/:id">
+                            <AuthorEdit/>
+                        </Route>
+                        <Route path="/authors/info/:id">
+                            <AuthorInfo/>
+                        </Route>
+                        <Route path="/authors/add">
+                            <AuthorEdit/>
+                        </Route>
+                        <Route path="/authors">
+                            <Authors/>
+                        </Route>
+                    </Switch>
+                    <Footer/>
+                </MainStyle>
+            </Router>
             </ThemeProvider>
         </Box>
     );
