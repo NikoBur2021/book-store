@@ -28,6 +28,7 @@ import Books from "./components/books/Books";
 import AuthorEdit from "./components/authors/AuthorEdit";
 import AuthorInfo from "./components/authors/AuthorInfo";
 import Authors from "./components/authors/Authors";
+import useStyles from "./styles";
 
 
 
@@ -81,6 +82,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 export default function PersistentDrawerLeft() {
+    const classes = useStyles()
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
 
@@ -97,8 +99,8 @@ export default function PersistentDrawerLeft() {
             <ThemeProvider theme={theme}>
             <Router>
                 <CssBaseline />
-                <AppBar position="fixed" open={open}>
-                    <Toolbar>
+                <AppBar position="fixed" open={open} >
+                    <Toolbar className={classes.bar}>
                         <IconButton
                             color="inherit"
                             aria-label="open drawer"
@@ -133,7 +135,7 @@ export default function PersistentDrawerLeft() {
                     </DrawerHeader>
                     <Divider />
                     <List>
-                        <ListItem >
+                        <ListItem>
                                 <Button component={Link} to="/">
                                     <ListItemText primary={"FIRST PAGE"}/>
                                 </Button>

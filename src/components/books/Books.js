@@ -31,6 +31,7 @@ function Books() {
     },[])
     function handleClick() {
     }
+    console.log(books)
 
     return (
         <div>
@@ -53,7 +54,7 @@ function Books() {
                                     <Typography gutterBottom variant="h5">
                                         {book.author.firstName} {book.author.lastName}
                                     </Typography>
-                                    <Typography gutterBottom variant="h5">
+                                    <Typography gutterBottom variant="h6">
                                         {book.name}
                                     </Typography>
                                     <Typography>

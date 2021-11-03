@@ -28,6 +28,7 @@ function Authors() {
         })
             .then(result => setAuthors(result.data.content))
             .catch(error => alert(error))
+
     },[])
 
     function handleClick(event){

@@ -7,6 +7,9 @@ const useStyles = makeStyles({
     authorSelect: {
         minWidth: '120px'
     },
+    bar:{
+        background: '#6d97d9'
+    },
     backgroundFirstPage: {
         backgroundImage: `url(${pic})`,
         backgroundPosition: 'center',

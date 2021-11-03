@@ -19,6 +19,7 @@ function BookInfo() {
             .then(result => setBook(result.data))
             .catch(error => alert(error) )
     }, [])
+    console.log(book)
 
     function deleteBook() {
         axios.delete('https://books-backend2021.herokuapp.com/api/v1/books/' + id)
@@ -26,6 +27,7 @@ function BookInfo() {
             // Если удаление прошло успешно, то мы должны перейти на страничку localhost...
             .catch(error => alert(error))
     }
+
 
     function handleClick() {
 
